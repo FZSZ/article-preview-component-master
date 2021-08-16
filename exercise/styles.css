@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
 :root {
-  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
-  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
-  --Grayish-Blue: hsl(212, 23%, 69%);
-  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+  --Very-Dark-Grayish-Blue: #48556a;
+  --Desaturated-Dark-Blue: #6d7f97;
+  --Grayish-Blue: #9eafc2;
+  --Light-Grayish-Blue: #ecf2f8;
+  --border-top: 10px 10px 0 0;
+  --border-bottom: 0 0 10px 10px;
+  --border-left: 10px 0 0 10px;
+  --border-right: 0 10px 10px 0;
 }
 * {
   margin: 0;
@@ -13,20 +17,193 @@
   text-decoration: none;
 }
 body {
-  font-size: 13;
+  font-size: 13px;
   font-family: 'Manrope', sans-serif;
+  background: var(--Light-Grayish-Blue);
+  color: var(--Desaturated-Dark-Blue);
 }
-#container {}
-#content {}
-header .image-header {}
-main #text {}
-#text .flex {}
-.flex #title {}
-.flex #paragraph {}
-footer #profile-box {}
-#profile-box .profile-content {}
-.profile-content .flex {}
-.flex .profile-image {}
-.flex .profile-detail {}
-.profile-detail .profile-name {}
-.profile-detail .profile-date {}
+h1,
+h3 {
+  color: var(--Very-Dark-Grayish-Blue);
+}
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.flex.row {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#container {
+  min-height: 100vh;
+}
+#content {
+  width: 90%;
+  min-width: 300px;
+  max-width: 375px;
+  margin: 5rem 0;
+  background: #fff;
+  border-radius: 10px;
+}
+/* header */
+div[role=banner] {
+  border-radius: var(--border-top);
+  overflow: hidden;
+}
+div[role=banner],
+div[role=banner] * {
+  width: 100%;
+}
+.banner-img {
+  height: 250px;
+}
+.banner-img img {
+  width: 375px;
+}
+/* main */
+div[role=main] {
+  padding: 2rem 2rem 0;
+}
+.title {
+font-size: 1.5em;
+padding-bottom: 1rem;
+}
+.description {
+font-size: 1.05em;
+line-height: 1.5rem;
+}
+/* footer */
+div[role=contentinfo] {
+  width: 100%;
+  height: 80px;
+  padding: 0.8rem 2rem;
+  margin-top: 1.75rem;
+  position: relative;
+  border-radius: var(--border-bottom);
+}
+.profile-img img {
+  width: 50px;
+  border-radius: 50%;
+}
+.profile-details {
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+.profile-name {
+  font-size: 1.15em;
+  padding-bottom: 0.25rem;
+}
+.profile-publish {
+  font-size: 1em;
+}
+.share {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 2rem;
+  border-radius: var(--border-bottom);
+  text-transform: uppercase;
+  text-align: center;
+  background: var(--Very-Dark-Grayish-Blue);
+}
+.share.active {
+  display: flex;
+}
+.share.flex {
+  justify-content: flex-start;
+}
+.share-text {
+  font-size: 1.2em;
+  letter-spacing: 0.25rem;
+}
+.socials.flex {
+  width: 50%;
+  justify-content: space-evenly;
+}
+.share-button,
+.share-button object {
+  position: relative;
+}
+.div-share {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-100%, -50%);
+}
+.share-button {
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 333;
+  background: var(--Light-Grayish-Blue);
+}
+.share-button.active {
+  background: var(--Desaturated-Dark-Blue);
+}
+.share-button object {
+  z-index: -1;
+}
+@media screen and (min-width: 920px) {
+  #content {
+    min-width: 820px;
+    height: 300px;
+    flex-direction: row;
+  }
+  div[role=banner] {
+    min-width: 400px;
+    height: 100%;
+    border-radius: var(--border-left);
+  }
+  .banner-img {
+    height: 100%;
+  }
+  .banner-img img {
+    width: 100%;
+  }
+  div[role=main] {
+    padding: 1rem;
+  }
+  div[role=contentinfo] {
+    margin-top: 1rem;
+  }
+  .share {
+    width: 14rem;
+    height: 1rem;
+    top: -50%;
+    left: 50%;
+    transform: translate(18.5%, -50%);
+    padding: 1.7rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    z-index: 111;
+  }
+  .share:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: var(--Very-Dark-Grayish-Blue);
+    transform: translate(0, 50%) rotate(45deg);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+    z-index: -1;
+  }
+  .share-text {
+    font-size: 1em;
+  }
+  .socials.flex {
+    width: 100%;
+  }
+}
