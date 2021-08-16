@@ -46,6 +46,7 @@ h3 {
   margin: 5rem 0;
   background: #fff;
   border-radius: 10px;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
 }
 /* header */
 div[role=banner] {
@@ -156,7 +157,6 @@ div[role=contentinfo] {
     min-width: 820px;
     height: 300px;
     flex-direction: row;
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
   }
   div[role=banner] {
     min-width: 400px;
